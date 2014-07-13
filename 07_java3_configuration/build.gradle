@@ -1,0 +1,21 @@
+// svnant という名前のconfigurationを作成
+configurations {
+    svnant
+}
+
+// svnant に依存ライブラリを追加
+dependencies {
+    svnant fileTree(dir: 'lib/svnant', include: '**/*.jar')
+}
+
+task dwnSnark << {
+    // classpath として svnant に設定したライブラリ群を指定する
+    ant.taskdef(resource: 'org/tigris/subversion/svnant/svnantlib.xml', classpath: configurations.svnant.asPath)
+    mkdir('destpath')
+
+
+    ant.svn(javahl: 'false', svnkit: 'true', username: 'user', password: 'pass', failonerror: 'false') {
+        ant.checkout(url: 'https://svn.java.net/svn/groovychart~svn', destpath: 'destpath')
+        ant.update(dir: 'destpath')
+    }
+}

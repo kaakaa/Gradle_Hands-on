@@ -1,0 +1,7 @@
+task myCopy(type: Copy) {
+  from 'resource'
+  into 'target'
+  include '**/*.txt'
+
+  logger.quiet 'Copy .txt files'
+}

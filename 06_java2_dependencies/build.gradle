@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+sourceSets {
+    main.java.srcDir 'src'
+    test.java.srcDir 'test'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.hibernate:hibernate-core:4.2.14.Final'
+    compile fileTree(dir: 'libs', include: '**/*.jar')
+    testCompile 'junit:junit:4.11'
+}

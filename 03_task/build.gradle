@@ -1,0 +1,9 @@
+task hello(description: 'sample task') << {
+    println "Hello Gradle!"
+}
+
+task greet(description: 'sample task2') << {
+    println "Bye Gradle!"
+}
+
+greet.dependsOn hello

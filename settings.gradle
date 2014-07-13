@@ -1,0 +1,3 @@
+new File('./').listFiles({it.isDirectory()} as FileFilter).each { dir ->
+    include dir.name
+}

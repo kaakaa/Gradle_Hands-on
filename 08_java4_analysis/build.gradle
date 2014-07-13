@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'jdepend'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    testCompile 'junit:junit:4.11'
+}
+
+[Checkstyle, FindBugs, Pmd].each { type ->
+    tasks.withType(type) {
+        ignoreFailures = 'true'
+    }
+}
