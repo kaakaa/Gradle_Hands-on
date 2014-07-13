@@ -1,0 +1,2 @@
+includeFlat 'ProjectA'
+include 'ProjectB'
